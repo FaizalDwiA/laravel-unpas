@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">User Registration</h2>
+
+        <div class="container-main2">
+            <h2>Membuat method register</h2>
+
+            <ul>
+                <li>untuk mengelola data yang registrasi</li>
+                <li>sebelumnya buka file register/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/1.webp" />
+                </div>
+                <li>masuk file route web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/2.webp" />
+                </div>
+                <li>kita buka file registerController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/3.webp" />
+                </div>
+                <li>kita isikan lalu click register</li>
+                <li>kita cek hasilnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/4.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Page expired</h2>
+
+            <ul>
+                <li>Page Expired : ini terjadi karena laravel berusaha mengamankan halaman web kita ketika kita
+                    menggunakan post</li>
+                <li>buka didokumetasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/5.webp" />
+                </div>
+                <li>CRSF : cross-site request forgery</li>
+                <li>CSRF : sebuah teknik serangan terhadap website kita, dimana serangan ini memalsukan (forgery ==
+                    memalsukan) request dari website lain</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/6.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/7.webp" />
+                </div>
+                <li>menjaga request agar selalu dikirimkan dari website kita dengan <b>csrf_toker</b></li>
+                <li>jadi website kita akan mengenerate sebuah token didalam session dan akan dicocokkan dengan yang ada
+                    didalam sesionnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/8.webp" />
+                </div>
+                <li>cukup menambahkan @csrf(blade directive) akan menerjemahkan seperti input hidden</li>
+            </ul>
+
+            <hr>
+
+            <h2>Implementasi CSRF</h2>
+
+            <ul>
+                <li>masuk ke file register/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/9.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/10.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Validasi</h2>
+
+            <ul>
+                <li>cek didokumetasi validation</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/11.webp" />
+                </div>
+                <li>katanya harus punya controller</li>
+                <hr>
+                <li>kita buka file registerController.php</li>
+                <li>untuk memanggil request</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/12.webp" />
+                </div>
+                <hr>
+                <li>contoh validasion</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/13.webp" />
+                </div>
+                <li>jika ingin melihat apa saja role nya click dokumented</li>
+                <hr>
+                <li>buka file registerController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/14.webp" />
+                </div>
+                <hr>
+                <li>kita buat directif error</li>
+                <li>dengan class in-invalid bootstrap</li>
+                <hr>
+                <li>displaying error</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/15.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/16.webp" />
+                </div>
+                <hr>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/17.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/18.webp" />
+                </div>
+                <hr>
+                <li>memperbaiki validasi email</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/19.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/20.webp" />
+                </div>
+                <hr>
+                <li>kita bisa atur agar tidak perlu ngisi ulang tiap<sup>2</sup> inputan</li>
+                <li>pakai old</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/21.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/22.webp" />
+                </div>
+                <hr>
+                <li>buka file registerController.php/li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/15/23.webp" />
+                    </div>
+                    <ul>
+                        <li>Hasil : </li>
+                    </ul>
+                    <div class="container-gmb">
+                        <img src="../aset/img/15/24.webp" />
+                    </div>
+                <li>error karena pada file User.php model</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/25.webp" />
+                </div>
+                <li>fillable (yang boleh diisi) name, email, passwword</li>
+                <li>jadi tambahkan username</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/26.webp" />
+                </div>
+                <li>solusi agar tidak perlu edit fillable lagi ganti jadi guarded</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/27.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/28.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Enkripsi password</h2>
+
+            <ul>
+                <li>masuk file registerController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/29.webp" />
+                </div>
+                <li>atau pakai metode hashing</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/30.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/31.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/32.webp" />
+                </div>
+                <li>kita coba</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/33.webp" />
+                </div>
+                <hr>
+                <li>kita redirects</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/34.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/35.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Flash message</h2>
+
+            <ul>
+                <li>buka dokumentasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/36.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/37.webp" />
+                </div>
+                <li>kita kasih sebuah flash didalam session agar ketika balik kehalaman login ada tulisan registrasi
+                    berhasil silahkan login</li>
+                <li>buka file registerController.php</li>
+
+                <li>buka file login/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/38.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/40.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/41.webp" />
+                </div>
+                <hr>
+                <li>kita bisa buat lebih ringkas lagi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/15/42.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

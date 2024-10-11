@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Membuat Model Post</h2>
+
+        <div class="container-main2">
+            <h2>Ubah nama app/Models/post.php menjadi app/Models/post_.php</h2>
+            <div class="container-gmb">
+                <img src="../aset/img/7/1.webp" />
+            </div>
+
+            <hr>
+
+            <h2>perintah help</h2>
+
+            <ul>
+                <li>setiap perintah artisan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/2.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>membuat model migration</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/3.webp" />
+                </div>
+                <li>modelnya dan migration nya dibuat</li>
+                <li>otomatis akan dikasih nama table yang sudah jamak</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/4.webp" />
+                </div>
+                <li>didalam folder database sudah nambah 1</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/5.webp" />
+                </div>
+                <li>tambahkan excerpt</li>
+                <li>excerpt : untuk menyimpan sebagian kecil dari tulisan didalam body blog kita, supaya ada tulisan
+                    remore</li>
+                <ul>
+                    <li>ketika diclick diklik akan masuk ke detail postinganya</li>
+                </ul>
+                <li>timestamps : method untuk membuat created add & updated add</li>
+                <li>timestamp : tipe data time stamp</li>
+                <li>nullable : kosong</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/6.webp" />
+                </div>
+                <li>kemudia kita migrasi ke database</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/7.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/8.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Menambahkan beberapa post</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/9.webp" />
+                    <div class="container-gmb">
+                        <img src="../aset/img/7/10.webp" />
+                    </div>
+                    <li>bikin lagi</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/7/11.webp" />
+                    </div>
+                    <div class="container-gmb">
+                        <img src="../aset/img/7/12.webp" />
+                    </div>
+                    <hr>
+                    <li>tampil data pertama</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/7/13.webp" />
+                    </div>
+                    <li>mengambil judul semua data</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/7/14.webp" />
+                    </div>
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Membenarkan modelsnya</h2>
+
+            <ul>
+                <li>buka file resources/views/posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/15.webp" />
+                </div>
+                <li>ganti menggunakan notasi object</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/16.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2></h2>
+
+            <ul>
+                <li>kita sudah punya model dan controller</li>
+                <li>tapi didalam halaman resources/views/post.blade.php</li>
+                <li>kita menuliskan body teksnya di tag p, kedepannya mungkin saja postingan yang dikirim itu beberapa
+                    paragra</li>
+                <li>tag p nya didalam bodynya</li>
+                <li>hilangkan p dan notasi arraynya ganti notasi object</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/17.webp" />
+                </div>
+                <li>coba kita masukan data yang ada tag p nya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/18.webp" />
+                </div>
+                <li>kita lihat diblognya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/19.webp" />
+                </div>
+                <hr>
+                <li>Hasilnya seperti ini</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/20.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/21.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Menghilangkan tag p</h2>
+
+            <ul>
+                <li>pengen paragraf nya dijalankan</li>
+                <li>ini karena laravelnya berusaha mengamankan isi dari variable kita didalam string blade</li>
+                <li>jika kita pakai 2 kurung kurawal : artinya akan mencetak menggunakan PHP echo sekaligus menjalankan
+                    html specialcharts</li>
+                <li>solusi : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/22.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/23.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>menambahkan data instadari object</h2>
+
+            <ul>
+                <li>Menambahkan 1 buah data dengan cara yang berbeda</li>
+                <li>membuat instandari object terus kita isi tiap<sup>2</sup> property nya</li>
+                <li>pada saat kita bekerja pada form ini yang kita lakukan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/24.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/25.webp" />
+                </div>
+                <li>dilaravel sudah menangani MassAssignment : tidak boleh banyak property langsung dimasukin kedalam
+                    table(defaultnya tidak boleh)</li>
+                <li>kecuali kita kasih tau bahwa porperty ini boleh diisi</li>
+                <li>cara mengasih tau : bikin sebuah property yang namanya failable</li>
+                <hr>
+                <li>masuk ke App/Models/Post.php</li>
+                <li>array karena buat ngasih tau property apa saja yang boleh diisi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/26.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/27.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/28.webp" />
+                </div>
+                <li>ada kebalikannya, guarded : yang tidak boleh diisi lainnya boleh</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/29.webp" />
+                </div>
+                <li>tambah data judul ke lima</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/30.webp" />
+                </div>
+                <hr>
+                <li>fillable & guarded juga nanti akan terpakai kalo mau melakukan type MassAssignment yang lain selain
+                    create : update</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/31.webp" />
+                </div>
+                <li>ini bisa berubah karena kita perbolehkan di guardednya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/32.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>cara lain mengedit data</h2>
+
+            <ul>
+                <li>kalo find itu : where id sama dengan berapa</li>
+                <li>kalo where bisa pakai yang lain, misal mengubah postingan yang apa</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/33.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/34.webp" />
+                </div>
+                <li>tulisan 1 artinya : ada 1 yang berubah</li>
+            </ul>
+
+            <hr>
+
+            <h2>Route Model Binding</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/35.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/36.webp" />
+                </div>
+                <li>pada saat kita menyuntikkan semua id dari model kita ke dalam route kita atau controller, kita akan
+                    melakukan query record yang kita cari berdasarkan id tadi</li>
+                <li>laravel itu punya sebuah fitur yang namanya route model binding yang tugasnya mengskip apa yang kita
+                    lakukan tadi</li>
+                <li>jadi si laravelnya akan langsung mengquery in supaya dapat langsung data sesuai dengan apa yang kita
+                    cari, tanpa harus kirimkan id terus kita query sendiri</li>
+                <li>secara otomatis mengirimkan instances dari model yang sesuai</li>
+            </ul>
+
+            <hr>
+
+            <h2>caranya</h2>
+
+            <ul>
+                <li>pada saat kita akan mendapatkan sesuatu dari URL kita, biasanya kita tulisnya users/id, kita
+                    kirimkan wildcardnya begitu biasanya</li>
+                <li>kalo dilaravel kita bisa aja langsung panggil instancenya</li>
+                <li>kalo kita mengirimkan post kita kirimkan langsung post, klao user kita kirimkan user</li>
+                <li>tapi didalam functionnya parameternya kita langsung type hintingnya</li>
+                <li>kita langsung kasih type datanya bahwa dia itu adalah model yang namanya user</li>
+                <li>{user} harus sama persis dengan $user</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/37.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita coba</h2>
+
+            <ul>
+                <li>buka file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/38.webp" />
+                </div>
+                <li>kita kirimkan post, ditangkap oleh controller kita post juga</li>
+                <li>buka file PostController</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/39.webp" />
+                </div>
+                <li>Post : modelnya</li>
+                <li>variable harus sama dengan variable yang ada di web.php</li>
+                <li>ini memungkinkan kita untuk mengirimkan data bukan lagi id</li>
+                <li>kalo id resiko bisa ditebak oleh orang lain</li>
+            </ul>
+
+            <hr>
+
+            <h2>cara pakai</h2>
+
+            <ul>
+                <li>kita tambahkan slug</li>
+                <li>masuk ke file migration/create_posts_table.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/40.webp" />
+                </div>
+                <li>kita migration dulu</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/41.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/42.webp" />
+                </div>
+                <li>kita tambahkan data</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/43.webp" />
+                </div>
+                <li>tambahkan data sebanyak 3x</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/44.webp" />
+                </div>
+                <li>sekarang kita bikin agar yang dikirimkan itu bukan id tapi slug</li>
+                <li>kita buka halaman view post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/45.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/46.webp" />
+                </div>
+                <hr>
+                <li>kalo diklik masih error karena dia masih mencari id bukan slug</li>
+                <li>solusi : ubah web.php</li>
+                <li>kalo post saja defaultnya akan mengirimkan id , sebagai unix identifiernya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/7/47.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

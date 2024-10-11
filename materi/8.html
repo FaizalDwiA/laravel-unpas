@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Post category & Relationship</h2>
+
+        <div class="container-main2">
+            <h2>ceritanya</h2>
+
+            <ul>
+                <li>kita akan menambahkan kategori untuk setiap postingan blog kita</li>
+                <li>kategori akan menempel di setiap blognya</li>
+            </ul>
+
+            <hr>
+
+            <h2>buat model dan migration kategori</h2>
+
+            <ul>
+                <li>membuat model migration terlebih dahulu</li>
+                <li>belum table</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/1.webp" />
+                </div>
+                <li>buat skema untuk kategori di file create_categories_migrations_table</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/2.webp" />
+                </div>
+                <li>membuat foreigiId di file create_posts_migrations_table</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/3.webp" />
+                </div>
+                <li>kita fresh migrationnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/4.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/5.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/6.webp" />
+                </div>
+                <li>isikan caegori nya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/7.webp" />
+                </div>
+                <li>kita atur massAssignment</li>
+                <li>buka file category.php dimodels</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/8.webp" />
+                </div>
+                <li>tambahkan data</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/9.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/10.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita coba isi postingan</h2>
+
+            <ul>
+                <li>isi datanya sebanyak 3x</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/11.webp" />
+                </div>
+                <li>mencari postingan category programming</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/12.webp" />
+                </div>
+                <li>akan lebih keren jika langsung tau nama categorynya apa</li>
+                <li>karena sekarang bentuknya masih id</li>
+                <li>kalo pakai SQL biasa itu harus join</li>
+                <li>kalo dilaravel kita harus tentukan dulu releasionship antar modelnya</li>
+            </ul>
+
+            <hr>
+
+            <h2>Eloquent Relationships</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/13.webp" />
+                </div>
+                <li>table didalam database kita itu biasanya berelasi 1 sama lain</li>
+                <li>sebuah blok post itu mungkin saja bisa memiliki banyak komentar</li>
+                <li>komentar ini selain berelasi dengan postnya pasti juga berelasi dengan siapa yang menuliskannya</li>
+                <li>nanti kemungkinan besar berelasi juga dengan table atau model user</li>
+                <li>jadi post bisa berelasi dengan comment, bisa berelasi dengan user</li>
+                <li>dengan Eloquent itu mengelola dan bekerja dengan Relationship ini menjadi mudah, dan mendukung
+                    beberapa macam relationship yang kita kenal didalam database</li>
+                <li>jadi saran sebelum masuk kedalam eloquent ini, harus sudah paham dulu mengenai relasi antar table
+                    khususnya diMySQL, apa itu One to one, one to many, many to many</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/14.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Table Relationship</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/15.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/16.webp" />
+                </div>
+                <li>jadi categories berelasi dengan Post dengan foreign key category id</li>
+            </ul>
+
+            <hr>
+
+            <h2>Cardinalitas / Cardinality</h2>
+
+            <ul>
+                <li>apakah:</li>
+                <ul>
+                    <li>One-to-One</li>
+                    <li>One-to-Many</li>
+                    <li>Many-to-Many</li>
+                </ul>
+                <hr>
+                <li>kita tentukan dulu hubungannya mau gimana antara table categories ke table posts nya</li>
+                <li>jadi 1 categories ini bisa memiliki banyak post</li>
+                <li>one-to many</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/17.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Cardinality (inverse)</h2>
+
+            <ul>
+                <li>kita lihat dari sisi post ke categories</li>
+                <li>kita pengen 1 post hanya memiliki 1 categories</li>
+                <li>one-to-one</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/18.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Relationship</h2>
+
+            <ul>
+                <li>1 categorirs hasMany Post</li>
+                <ul>
+                    <li>1 categories ke banyak post</li>
+                </ul>
+                <li>1 Posts belongsTo 1 Categories</li>
+                <ul>
+                    <li>1 posts ke 1 categories</li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/19.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Relationship (contoh 2)</h2>
+
+            <ul>
+                <li>kita akan menghubungkan posts ke table users</li>
+                <li>postingan yang ditulis pastinya ada usernya</li>
+                <li>sisipkan foreign key baru yaitu user_id, sebagai foreign key dari table users</li>
+                <li>cara penulisan foreign key nya itu defaultnya adalah versi singular dari (nama table)_ id</li>
+                <li>boleh pakai nama lain tapi harus dikasih tau ke laravelnya tapi kalo mau gampang contoh versi
+                    singularnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/20.webp" />
+                </div>
+                <hr>
+                <li>dari posts ke users itu : 1 ke 1</li>
+                <li>karena : 1 postingan dimiliki oleh 1 user saja</li>
+                <li>dari users ke posts : 1 users bisa memiliki banyak postingan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/21.webp" />
+                </div>
+                <hr>
+                <li>nama relasinya apa</li>
+                <li>1 posts belongTo 1 Users</li>
+                <li>1 Users hasMany Posts</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Relationship (contoh 3)</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/23.webp" />
+                </div>
+                <li>Posts ke Comments</li>
+                <ul>
+                    <li>1 Post punya banyak comments</li>
+                    <li>1 Post hasMany Comments</li>
+                    <li>1 comments belongsTo 1 Posts</li>
+                </ul>
+                <li>Comments ke Users</li>
+                <ul>
+                    <li>1 Comments belongsTo 1 Users</li>
+                    <li>1 Users hasMany Comments</li>
+                </ul>
+            </ul>
+
+            <hr>
+
+            <h2>Coding</h2>
+
+            <ul>
+                <li>buka file model Post.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/24.webp" />
+                </div>
+                <li>kita cek apakah sudah berhasil </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/25.webp" />
+                </div>
+                <li>ajaib, bahwa postingan pertama category id nya 1 maka mendapatkan seluruh instance dari table
+                    category</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/26.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>saat click 1 judul ada tulisan ditulis oleh siapa category apa</h2>
+
+            <ul>
+                <li>buka view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/27.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/28.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>bikin programmingnya bisa diclick akan menampilkan semua yang postinganya category programming</h2>
+
+            <ul>
+                <li>buka file view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/29.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/30.webp" />
+                </div>
+                <li>tapi kalo dibuka masih error karena kita belum bikin routes nya</li>
+            </ul>
+
+            <hr>
+
+            <h2>bikin routes nya ke categories</h2>
+
+            <ul>
+                <li>buka route file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/31.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/32.webp" />
+                </div>
+                <li>buat file view baru dengan nama category.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/33.webp" />
+                </div>
+                <li>coba kita jalankan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/34.webp" />
+                </div>
+                <li>hasilnya error karena post nya tidak ada isinya, kenapa tidak ada isinya?</li>
+                <li>karena kita belum balikin relasinya</li>
+                <li>ini baru relasi untuk post</li>
+                <li>buka model category.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/35.webp" />
+                </div>
+                <hr>
+                <li>kalo kita coba pakai tinker dulu</li>
+                <li>akan muncul 2 postingan yang categorynya programming</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/36.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/37.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>membuat 1 routes untuk menangani categories</h2>
+
+            <ul>
+                <li>buka route web.php</li>
+                <li>buat route untuk categories</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/38.webp" />
+                </div>
+                <li>buat file view categories.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/39.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/8/40.webp" />
+                </div>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

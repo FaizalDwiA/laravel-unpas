@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Blade Templating Engine</h2>
+
+        <div class="container-main2">
+            <h2>Templating Engine</h2>
+
+            <ul>
+                <li>Sebuah fitur atau tools untuk membantu kita dalam mengelola tampilan halaman web khususnya untuk
+                    sebuah framework</li>
+                <li>untuk laravel Templating Engine nya dinamakan blade</li>
+            </ul>
+
+            <hr>
+
+            <h2>Penjelasan Blade</h2>
+
+            <ul>
+                <li>buka dokumentasi blade : <a href="https://laravel.com/docs/9.x/blade" target="_blank"
+                        rel="noopener noreferrer">https://laravel.com/docs/9.x/blade</a></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/1.webp" />
+                </div>
+                <li>blade itu adalah sebuah templating engine yang sudah terdapat didalam laravel</li>
+                <li>didalam nya kita masih bisa menggunakan syntax php didalam view kita dengan tambahan syntax blade
+                </li>
+                <li>pada akhirnya akan dicompile kedalam syntax PHP biasa</li>
+            </ul>
+
+            <hr>
+
+            <h2>Displaying Data dengan Blade</h2>
+
+            <ul>
+                <li>tidak usah menggunakan PHP echo</li>
+                <li>ini adalah syntax echo milih blade</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/2.webp" />
+                </div>
+                <li>fungsinya sama dengan PHP echo tapi ada kelebihannya</li>
+                <li>otomatis dibelakang layar sudah ditambahkan sebuah fungsi htmlspecialchars</li>
+                <li>yang sangat berguna untuk menghindari serangan XSS(Cross Side Scripting)</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/3.webp" />
+                </div>
+                <li>kalo perlu install extension bernama : Laravel Blade Spacer</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/4.webp" />
+                </div>
+                <li>buka file about.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/5.webp" />
+                </div>
+                <li>Hasil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/6.webp" />
+                </div>
+                <li>ini bisa jalan hanya ketika nama filenya ada bladenya</li>
+                <li>kalo kita hapus bladenya maka templating enginenya tidak akan berjalan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/7.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/10.webp" />
+                </div>
+                <li>sebenarnya ini dicompile secara otomatis menjadi php echo</li>
+                <li>untuk melihatnya ada dibagian storage/framework/views</li>
+                <li>ada banyak file, file ini otomatis dibuat laravelnya untuk menampilkan halaman view hasil compilenya
+                </li>
+                <li>cari satu persatu</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/11.webp" />
+                </div>
+                <li>sebetulnya dibelakang layar ini yang dijalankan</li>
+                <li>ada php echo, ada fungsi e : untuk encoding(melakukan htmlspecialchars), lalu cetak isi variable
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2>Membuat System Layouting sederhana menggunakan bantuan blade</h2>
+
+            <ul>
+                <li>kita ubah dulu menggunakan bantuan framework bootstrap</li>
+                <li>Link : <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank"
+                        rel="noopener noreferrer">https://getbootstrap.com/docs/5.0/getting-started/introduction/</a>
+                </li>
+                <li>cari starter template kemudian kita copy</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/10.webp" />
+                </div>
+                <li>masuk ke file resources/views/home.blade.php</li>
+                <li>ubah: </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/11.webp" />
+                </div>
+                <li>Hasil : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/12.webp" />
+                </div>
+                <hr>
+                <li>tambahkan Navbar</li>
+                <li>Link : <a href="https://getbootstrap.com/docs/5.0/components/navbar/#nav" target="_blank"
+                        rel="noopener noreferrer">https://getbootstrap.com/docs/5.0/components/navbar/#nav</a></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/13.webp" />
+                </div>
+                <li>Masukkan ke dalam file resources/views/home.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/14.webp" />
+                </div>
+                <li>Hasil:</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/15.webp" />
+                </div>
+                <hr>
+                <li>navbarnya pengen geser tengah : hapus fluidnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/16.webp" />
+                </div>
+                <hr>
+                <li>ubah warna jadi merah : bg-danger, tulisan putih : nav-dark</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/17.webp" />
+                </div>
+                <li>Hasil : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/18.webp" />
+                </div>
+                <hr>
+                <li>Hello worldnya didalam container, dan margin top 4</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/19.webp" />
+                </div>
+                <li>hasil: </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/20.webp" />
+                </div>
+                <hr>
+                <li>Ganti tulisan di navbarm dan hapus disable, hapus aria-current</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/21.webp" />
+                </div>
+                <li>Hasil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita perbaiki link supaya mengarah ke tiap<sup>2</sup> halaman</h2>
+
+            <ul>
+                <li>ubah hrefnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/23.webp" />
+                </div>
+                <li>tapi tampilannya belum sama seperti yang home, ada navbar dan containernya</li>
+            </ul>
+
+            <hr>
+
+            <h2>kita akan menggunakan sistem layouting blade</h2>
+
+            <ul>
+                <li>jadi nanti kita akan pecah template ini menjadi sebuah layout tersendiri</li>
+                <li>dan layout itu akan digunakan disetiap halaman yang akan dipakai</li>
+                <hr>
+                <li>diblade didokumentasinya itu ada yang namanya Extends</li>
+                <li>kita akan punya sebuah layout yang akan dipakai yang namanya child view</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/24.webp" />
+                </div>
+                <li>halaman<sup>2</sup> home, about, blog itu merupakan halaman child yang akan menggunakan sebuah
+                    layout</li>
+                <li>nanti halaman child ini akan mengextends didalam scriptnya supaya bisa pakai layout tersebut</li>
+                <hr>
+                <li>bikin layoutnya, buat folder dan file resources/layouts/main.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/25.webp" />
+                </div>
+                <li>yang isinya kita copykan dari halaman home</li>
+                <hr>
+                <li>didalam layout utama nya yang berbeda isi dari containernya saja</li>
+                <li>kita harus kasih tau bahwa pada bagian ini mengambil dari child viewnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/26.webp" />
+                </div>
+                <hr>
+                <li>kita bisa hapus di halaman homenya resources/views/home.blade.php</li>
+                <li>jadi tulisan di home akan masuk ke halaman dimain selama kita kasih tau</li>
+                <li>tulisan ini adalah sebuah section yang bernama container</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/27.webp" />
+                </div>
+                <li>selama home ini menggunakan layout utamanya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/28.webp" />
+                </div>
+                <li>kita terapkan dihalaman lain, misal about (resources/views/about.blade.php)</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/29.webp" />
+                </div>
+                <li>hasil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/30.webp" />
+                </div>
+                <hr>
+                <li>untuk halaman resources/views/posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/31.webp" />
+                </div>
+                <hr>
+            </ul>
+
+            <hr>
+
+            <h2>navbarnya bisa kita pisahkan menjadi component terpisah / parsials</h2>
+
+            <>
+                <li>buat folder baru resources/views/partials</li>
+                <ul>
+                    <li>untuk menyimpan bagian<sup>2</sup> spesifik didalam sebuah halaman yang nanti kita anggap
+                        sebagai component</li>
+                </ul>
+                <li>buat file baru di resources/views/partials/navbar.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/32.webp" />
+                </div>
+                <li>kita cut ambil dari resources/views/layouts/main.blade.php</li>
+                <li>kemudian kita tuliskan include</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/4/33.webp" />
+                </div>
+                <li>sebenarnya ada 2 cara untuk menambahkan component</li>
+                <ol>
+                    <li>menggunakan include</li>
+                    <li>menggunakan component</li>
+                    <ul>
+                        <li>menggunakan seperti syntax html</li>
+                        <div class="container-gmb">
+                            <img src="../aset/img/4/34.webp" />
+                        </div>
+                    </ul>
+                </ol>
+                <li>@include, @yield, @section itu direction nya blade</li>
+                </ul>
+
+                <hr>
+
+                <h2>Mengganti title menjadi dinamis</h2>
+
+                <ul>
+                    <li>masuk ke file routes/web.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/35.webp" />
+                    </div>
+                    <li>masuk ke file resources/views/layouts/main.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/36.webp" />
+                    </div>
+                    <li>Hasil : </li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/37.webp" />
+                    </div>
+                </ul>
+
+                <hr>
+
+                <h2>dihalaman tertentu navigasi menyala</h2>
+
+                <ul>
+                    <li>activenya akan dicetak ketika judul halamannya apa</li>
+                    <li>masuk ke file resources/views/partials/navbar.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/38.webp" />
+                    </div>
+                    <li>hasil </li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/39.webp" />
+                    </div>
+                </ul>
+
+                <hr>
+
+                <h2>Menampilkan beberapa tulisan diblog</h2>
+
+                <ul>
+                    <li>buka file routes/web.php</li>
+                    <li>buat variable ibarat seperti database</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/40.webp" />
+                    </div>
+                    <li>jadi blog_post ini sudah bisa masuk kedalam variable post</li>
+                    <li>dan sudah bisa kita akses di view posts</li>
+                    <li>kita cek dulu isinya dengan menggunakan direction milik blade @dd</li>
+                    <ul>
+                        <li>@dd : var_dump & die</li>
+                    </ul>
+                    <li>buka file resources/views/posts.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/41.webp" />
+                    </div>
+                    <li>isinya : </li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/42.webp" />
+                    </div>
+                    <li>kita ketikkan di posts.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/43.webp" />
+                    </div>
+                    <li>Hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/44.webp" />
+                    </div>
+                    <li>kita bungkus disebuah article</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/45.webp" />
+                    </div>
+                    <li>Hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/46.webp" />
+                    </div>
+                </ul>
+
+                <hr>
+
+                <h2>Membuat sebuah routes dan view untuk mengakses salah 1 posts</h2>
+
+                <ul>
+                    <li>istilah lainnya excer</li>
+                    <li>didalam postsnya dibungkus dengan tag a</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/47.webp" />
+                    </div>
+                    <li>untuk parameternya kita kasih sebuah slug</li>
+                    <ul>
+                        <li>slug ini adalah versi lain dari title</li>
+                        <li>kita ubah judulnya menjadi huruf kecil semua dan setiap spasinya diganti pakai dash / -</li>
+                    </ul>
+                    <li>masuk ke routes/web.php</li>
+                    <li>tidak boleh sama karena menjadi penanda dari masing<sup>2</sup> postingannya</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/48.webp" />
+                    </div>
+                    <li>kita masuk ke file resources/views/posts.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/49.webp" />
+                    </div>
+                    <li>Hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/50.webp" />
+                    </div>
+                    <li>bikin routes untuk single post</li>
+                    <li>masuk file routes/web.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/51.webp" />
+                    </div>
+                    <li>ini disebut wildcard, untuk mengambil apapun isi dari /(slash)nya</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/52.webp" />
+                    </div>
+                    <li>mecari postingan blog_post yang sesuai dengan slug</li>
+                    <li>sebelumnya bikin file post nya, resources/views/post.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/53.webp" />
+                    </div>
+                    <li>isinya : </li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/54.webp" />
+                    </div>
+                    <li>title, masuk ke file routes/web.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/55.webp" />
+                    </div>
+                    <li>hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/56.webp" />
+                    </div>
+                    <li>kita copy $blog_postnya karena kita anggap postingannya seolah<sup>2</sup> dapat dari database
+                    </li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/57.webp" />
+                    </div>
+                    <li>kita akan cari postigan yang slug nya sama dengan slug yang kita klik</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/58.webp" />
+                    </div>
+                    <li>kita cek dengan masuk ke file reources/views/post.blade.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/59.webp" />
+                    </div>
+                    <li>Hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/60.webp" />
+                    </div>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/61.webp" />
+                    </div>
+                    <li>kita sudah bisa pakai $post</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/62.webp" />
+                    </div>
+                    <li>hasil</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/63.webp" />
+                    </div>
+                    <div class="container-gmb">
+                        <img src="../aset/img/4/64.webp" />
+                    </div>
+                </ul>
+        </div>
+    </div>
+</body>
+
+</html>

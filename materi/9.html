@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">database Seeder</h2>
+
+        <div class="container-main2">
+            <h2>Intro</h2>
+
+            <ul>
+                <li>kalo menambahkan data itu menggunakan sebuah fitur yang bernama tinker</li>
+                <li>kalo cuma 1, 2, 5 ok, tapi bagaimana jika isi 20 post</li>
+                <li>akan merepotkan kalo kita tulis manual pakai tinker</li>
+                <li>atau ketika kita masih dalam pengembangan / development itu masih sering mengubah<sup>2</sup> skema
+                    dari table, menambah field baru, menghapus field yang sudah ada didalam database, menambahkan
+                    relasi, itu pasti table nya masih diubah<sup>2</sup></li>
+                <li>di materi ini kita akan lihat mengubah table user kita dan juga table post, karena kita sekarang
+                    akan melakukan relasi dari 2 table itu , setiap kita mengubah skema tablenya itu artinya kita harus
+                    melakukan kembali migrasi, yang artinya database kita akan kosong lagi, mulai lagi dari awal</li>
+                <li>kalo kita mau menambahkan data lagi kita buka tinker lagi, isikan lagi datanya manual 1 per 1</li>
+                <hr>
+                <li>ini akan mempermudah kita untuk mempopulasi / mengisikan data secara otomatis ketika kita nanti
+                    melakukan migrasi</li>
+                <li>jadi pas migrasi otomatis data ditable nya sudah ada isinya, tidak perlu repot<sup>2</sup> lagi buka
+                    tinker, isikan manual</li>
+            </ul>
+
+            <hr>
+
+            <h2>menambahkan fitur</h2>
+
+            <ul>
+                <li>menambahkan deskripsi dari tiap<sup>2</sup> postinganya, jadi nanti postingannya ditulis oleh siapa,
+                    dan masuk dalam categori apa</li>
+                <li>buka view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/1.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/2.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>membuat si penulisnya bisa kita click</h2>
+
+            <ul>
+                <li>buka file migration create_postsnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/3.webp" />
+                </div>
+                <li>solusi migration fresh : seeder</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/4.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/5.webp" />
+                </div>
+                <li>tapi datanya jadi kosong</li>
+            </ul>
+
+            <hr>
+
+            <h2>Seeding</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/6.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/7.webp" />
+                </div>
+                <li>seed : benih</li>
+                <li>kita bisa mengisi otomatis table kita ketika kita buat</li>
+                <li>panen isi tablenya</li>
+                <li>didalam laravel memiliki kemampuan untuk melakukan seed didatabase kita dengan data test, dengan
+                    menggunakan class seed</li>
+                <li>jadi tiap model itu kita bisa bikin class seed nya, dan nanti disimpan kedalam folder seeders</li>
+                <li>secara default kita sudah dikasih sebuah seeder yang namanya DatabaseSeeder yang nanti bisa kita
+                    gunakan untuk menjalankan proses seedingnya dari class<sup>2</sup> / model<sup>2</sup> lain</li>
+                <hr>
+                <li>seeder adalah fitur yang dikasih laravel untuk menggenerate / mempopulasi isi dari table kita secara
+                    otomatis dengan data testing / data dami pada saat development</li>
+            </ul>
+
+            <hr>
+
+            <h2>Membuat Seeders</h2>
+
+            <ul>
+                <li>cukup ketikan perintah <code>php artisan make:seeder (nama seedernya)</code></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/8.webp" />
+                </div>
+                <li>buka folder database\seeders\DatabaseSeeder.php</li>
+                <li>ini yang general : kita bisa menjalankan seeder untuk table manapun</li>
+                <li>coba kit nyalakan dulu</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/9.webp" />
+                </div>
+                <li>coba kita jalankan : <code>php artisan db:seed</code></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/10.webp" />
+                </div>
+                <li>Hasil : </li>
+                <li>tiba<sup>2</sup> ada 10 data random</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/11.webp" />
+                </div>
+                <li>ini kita melakukan seeding dengan bantuan factory</li>
+                <hr>
+                <li>ada sebuah fitur yang dimana dia menggenerate 10 data palsu untuk dimasukan ke dalam table kita</li>
+                <hr>
+                <li>kita coba manual dulu, kita hilangin data nya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/12.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita lakukan yang didalam tinker ke dalam seeder</h2>
+
+            <ul>
+                <li>buka file seeder/DatabaseSeeder.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/13.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/14.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/15.webp" />
+                </div>
+                <li>kita ketikkan di command : <code>php artisan db:seed</code></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/16.webp" />
+                </div>
+                <li>kita cek di database</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/17.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/18.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/19.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita bisa migrate fresh sekalian seed</h2>
+
+            <ul>
+                <li>tambahkan data 4</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/20.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/21.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita atur authornya</h2>
+
+            <ul>
+                <li>buka file model Post.php</li>
+                <li>tambahkan method untuk menghubungkan table post dengan user</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/23.webp" />
+                </div>
+                <hr>
+                <li>buka file model User.php</li>
+                <li>tambahkan method </li>
+                <li>untuk menghubungkan 1 user boleh punya banyak post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/25.webp" />
+                </div>
+                <hr>
+                <li>buka file view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/26.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/27.webp" />
+                </div>
+                <hr>
+                <li>kita bikin user baru</li>
+                <li>buka file seeder DatabaseSeeder.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/28.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/29.webp" />
+                </div>
+                <li>kita migrate fresh seed</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/30.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/31.webp" />
+                </div>
+                <hr>
+                <li>atur juga yang single post view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/32.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/9/33.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

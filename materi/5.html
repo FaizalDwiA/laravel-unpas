@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Model & Controller</h2>
+
+        <div class="container-main2">
+            <ul>
+                <li>divideo sebelumnya semua prosesnya masih ditangani component route kita</li>
+                <li>contohnya ketika kita mau melakukan request ke halaman post untuk menampilkan semua data dari
+                    blog_post kita itu dilakukan didalam route</li>
+                <li>juga proses menampilkan halaman view itu juga dilakukan didalam route</li>
+                <li>nah hal ini kurang tepat karena kalo kita mau menerapkan konsep MVC, 2 proses tadi harus kita
+                    pisahkan sesuai dengan component</li>
+                <li>kalo kita mau bekerja dengan data, itu harus kita simpan codinganya didalam model</li>
+                <li>kalo misal ada proses, seperti memilih dan menampilkan view itu dilakukan didalam controller</li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <li>ubah bagian resources/views/about.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/1.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Apa itu model</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/2.webp" />
+                </div>
+                <li>masuk ke dalam menu Eloquent Model</li>
+                <li>Eloquent : fitur yang ada didalam laravel yang merupakan ORM(Object Relasional Model)</li>
+                <li>masuk ke getting started</li>
+                <li>didalam laravel ada sesuatu yang disebut Eloquent</li>
+                <li>dia adalah sebuah object-relasional-mapper(ORM) yang membuat kita itu dengan mudah berinteraksi
+                    dengan database</li>
+                <li>dengan menggunakan Eloquent ini setiap table didalam database itu punya sebuah model bentuk nya
+                    class, agar kita bisa berinteraksi</li>
+                <li>kita bisa dengan mudah memanipulasi table dengan model, mulai dari insert, update, delete kedalam
+                    table</li>
+                <li>intinya dia sebuah kelas untuk mengelola table didalam database</li>
+            </ul>
+
+            <hr>
+
+            <h2>Membuat model</h2>
+
+            <ul>
+                <li>kita menggunakan perintah artisan</li>
+                <ul>
+                    <li><code>php artisan make:model {nama model}</code></li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/3.webp" />
+                </div>
+                <li>kita juga bisa membuat migrationnya</li>
+                <ul>
+                    <li>jadi migration ini untuk menuliskan skema database dan juga nanti akan mengenerate akan menjadi
+                        table didalam database</li>
+                </ul>
+                <hr>
+                <li>terminal / extension dari visual studio code</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/4.webp" />
+                </div>
+                <li>kalo lewat extension</li>
+                <ol>
+                    <li>ctl + shift + p</li>
+                    <li>ketikkan artisan pilih Model</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/5.webp" />
+                    </div>
+                    <li>nama model</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/6.webp" />
+                    </div>
+                    <li>apakah akan terhubung ke migrasi database : pilih no dulu</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/7.webp" />
+                    </div>
+                    <li>migration no lagi</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/8.webp" />
+                    </div>
+                    <li>Factory no lagi</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/9.webp" />
+                    </div>
+                    <li>otomatis bikin controller : no</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/10.webp" />
+                    </div>
+                    <li>kalo sudah kita lihat di file explorer kita Models/Post.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/11.webp" />
+                    </div>
+                </ol>
+                <li>kalo manual dari terminal</li>
+                <ol>
+                    <li>masuk terminal</li>
+                    <li>pastikan posisi berada di folder projectnya</li>
+                    <li>ketikkan php artisan make:model {nama modelnya}</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/12.webp" />
+                    </div>
+                    <li>lihat di file App/Models/Post.php</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/13.webp" />
+                    </div>
+                </ol>
+                <li>otomatis akan dibuat kan script ini karena untuk terhubung dengan database</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/14.webp" />
+                </div>
+                <li>tapi karena kita belum butuh maka bisa kita hapus dulu</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/15.webp" />
+                </div>
+                <hr>
+                <li>kita sudah punya class post untuk menyimpan data dari postingan kita</li>
+                <li>sehingga diroutes kita ini kita gak perlu nulisin lagi data potingannya di routes/web.php</li>
+                <li>kita cut data blog_post dari routes/web.php ke App/Models/Post.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/16.webp" />
+                </div>
+                <li>sebelum dipaste kita bikin property statis dulu difile App/Models/post.php</li>
+                <li>karena kita hanya pengen bisa diakses oleh class ini saja jadi akses modifier nya private</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/17.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Connect ke Model</h2>
+
+            <ul>
+                <li>nanti kita akan bikin sebuah method (static)</li>
+                <li>masuk ke file routes/web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/18.webp" />
+                </div>
+                <li>jadi error diVSC karena belum tau post itu apa, karena routes kita belum terhubung ke modelnya</li>
+                <li>caranya kita hubungkan lewat use, caranya : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/19.webp" />
+                </div>
+                <li>tapi all nya yang error, karena methodnnya belum ada</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/20.webp" />
+                </div>
+                <li>satu extension untuk mempermudah kita mengelola namespace dilaravel</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/21.webp" />
+                </div>
+                <hr>
+                <li>membuat method all, di file App\Models\Post.php</li>
+                <li>kenapa pakai self:: : karena static</li>
+                <li>kalo property biasa : menggunakan $this-&g;t</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>memperbaiki detail post</h2>
+
+            <ul>
+                <li>hapus aja di file routes/web.php di posts/slug</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/23.webp" />
+                </div>
+                <li>kita komentari dulu yang new post karena akan dipindahkan ke model post nanti</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/24.webp" />
+                </div>
+                <li>sekarang kita atur post baru mengambil dari model</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/25.webp" />
+                </div>
+                <li>error karena belum kita bikin</li>
+                <li>masuk ke file App\Models\Post.php</li>
+                <li>kita ambil data dari routes/web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/26.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/27.webp" />
+                </div>
+                <li>kalo kita lihat routes nya lebih rapi karena tidak ada data, karena data adanya diModels</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/8.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Collection</h2>
+
+            <ul>
+                <li>kota bisa mengubah data yang kita ambil menjadi sesuatu yang dinamakan colection</li>
+                <li>Collection : pembungkus sebuah array, yang akan membuat array menjadi lebih sakti</li>
+                <li>lihat didokumentasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/29.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/30.webp" />
+                </div>
+                <li>didalam laravel menyediakan sebuah collection, yang merupakan pembungkus dari data array</li>
+                <li>dengan collection memungkinkan kita bisa menjalankan banyak function</li>
+                <li>salah satunya map</li>
+                <li>caranya bungkus dengan collect</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/31.webp" />
+                </div>
+                <li>kalo dijalankan tidak ada perubahan / error</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/32.webp" />
+                </div>
+                <li>untuk mengambil data pertamanya</li>
+                <li>makanya pakai firstWhere</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/33.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Controller</h2>
+
+            <ul>
+                <li>ketik di dokumentasi controller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/34.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/35.webp" />
+                </div>
+                <li>dari pada kita mendefinisikan semua logika program kita sebagai closure didalam route file kita,
+                    kita bisa merapikan ini menggunaan sebuah class controller</li>
+                <ul>
+                    <li>closure : anonymous function</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/5/36.webp" />
+                    </div>
+                </ul>
+                <li>controller bisa menggabungkan request serupa untuk menangani logic nya kedalam sebuah class</li>
+                <hr>
+                <li>cara membuatnya kita bisa sebuah controller yang tersimpan dinamespace</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/37.webp" />
+                </div>
+                <li>terus bikin class didalamnya, class nya biasanya ada namanya diakhiri dengan controller yang
+                    mewarisi semua prilaku dari kelas controller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/38.webp" />
+                </div>
+                <li>didalamnya kita punya sebuah method untuk menangani sebuah logicnya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/39.webp" />
+                </div>
+                <hr>
+                <li>jadi kita punya 2 method</li>
+                <ol>
+                    <li>Menangani sebuah postingan</li>
+                    <li>menangani satu buat postingan</li>
+                </ol>
+                <hr>
+                <li>kalo methodnya sudah jadi siroutenya tidak lagi punya clossure tapi kita tulis : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/40.webp" />
+                </div>
+                <li>kita tulis requestnya(rutenya mau kemana), [] : nama controllernya apa, 'show' : nama methodnya apa
+                </li>
+                <hr>
+                <li>cara bikinya adalah kita bisa pakai artisan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/41.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/42.webp" />
+                </div>
+                <li>cek di file App\Http\Controllers\PostController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/43.webp" />
+                </div>
+                <li>kita biarkan dulu use nya, karena untuk menangani request kalo punya form, data diURL</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/44.webp" />
+                </div>
+                <hr>
+                <li>didalamnya nanti kita mau bikin 2 buah method</li>
+                <li>kita ambil datanya dari web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/45.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/46.webp" />
+                </div>
+                <li>kita hubungkan dengan App\Models\Post.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/47.webp" />
+                </div>
+                <hr>
+                <li>kita perbaiki di route/web.php kita, kita sudah tidak pakai closeure kita</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/48.webp" />
+                </div>
+                <li>jangan lupa kita includekan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/49.webp" />
+                </div>
+                <li>buat method berikutnya : show() : untuk menampilkan detail 1 postya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/50.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/5/51.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita mengakses sebuah slug yang tidak ada?</h2>
+        </div>
+    </div>
+</body>
+
+</html>

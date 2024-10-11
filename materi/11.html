@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">N+1 Problem</h2>
+
+        <div class="container-main2">
+            <h2>Perbaiki halaman kategori</h2>
+
+            <ul>
+                <li>menambahkan deskripsi & memperbaiki halaman kategori dan halaman author dan halaman post ini
+                    mengarah ke view yang sama</li>
+                <li>file view posts.blade.php untuk ketiganya</li>
+                <li>buka routes web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/1.webp" />
+                </div>
+                <li>buka controller post / PostController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/2.webp" />
+                </div>
+                <li>kita simpan title nya diheadingnya</li>
+                <li>buka file view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/3.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/4.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/5.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/6.webp" />
+                </div>
+                <li>kita bisa hapus view category.blade.php</li>
+                <hr>
+                <li>kelihatannya sudah ok bisa menampilkan post, author, category sebenarnya ada problem</li>
+                <li>problemnya N+1 Problem</li>
+            </ul>
+
+            <hr>
+
+            <h2>N+1 Problem</h2>
+
+            <ul>
+                <li>N+1 Problem terjadi ketika apk kita mengambil data dari database, dimana didalamnya kita melakukan
+                    looping terhadap data kita</li>
+                <li>kita akan melakukan pemanggilan ke database/ querynya berulang<sup>2</sup></li>
+                <li>apk nya itu yang harusnya hanya melakukan 2 query(query ke semua dan data yang ada didalamnya),
+                    malah akan menambahkan N query</li>
+                <li>bakalan banyak banget querynya</li>
+            </ul>
+
+            <hr>
+
+            <h2>Contoh N+1 Problem</h2>
+
+            <ul>
+                <li>sebetulnya yang kita lakukan adalah menampilkan semua data postingan simple banget</li>
+                <li>kita lihat dipostcontroller</li>
+                <li>kita cuma melakukan 1x query, ambil semua data post, lalu urutkan dari yang terbaru</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/7.webp" />
+                </div>
+                <li>masalah ketika melakukan looping dihalaman view postsnya</li>
+                <li>kita melakukan looping terhadap semua postingan kita, kita butuh table lain</li>
+                <li>ada table author dan category</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/8.webp" />
+                </div>
+                <li>kita query lagi didalam looping</li>
+                <li>problem : setiap kita melakukan query untuk mengecek authornya siapa itu melakukan pemanggilan
+                    terhadap database</li>
+                <li>looping author dia connect ke database, query lagi kedatabase</li>
+                <li>memanggil category query lagi</li>
+                <li>padahal query yang dilakukan itu cuma 3 ambil semua postingan, ambil semua author, ambil semua
+                    category</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/9.webp" />
+                </div>
+                <li>tapi ternyata tidak 3x, yang dilakukan adalah ambil semua psotingan 1x, setiap loopingnya ambil
+                    penulis, ambil category, looping lagi, ambil penulis, ambil category</li>
+                <li>kita punya data didatabase 20 jadi : 20x ke tabel user + 20x ke table category = 40 query</li>
+            </ul>
+
+            <hr>
+
+            <h2>clockwork</h2>
+
+            <ul>
+                <li>sebenarnya ini nilai default, karena yang terjadi dilaravelnya ketika kita membuat sebuah
+                    releasionship (hasMany, belongsTo), ketika kita melakukan looping di view posts.blade.php, laravel
+                    itu melakukan apa yang disebut dengan lazy loading : loadingnya males</li>
+                <li>jadi ketika dibutuhin baru dilakukan</li>
+                <li>solusi : kita bisa menggunakan library clockwork laravel</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/10.webp" />
+                </div>
+                <li>library yang bisa kita install diapk laravel kita yang nantinya akan kita hubungkan ke sebuah
+                    extension dibrowser, untuk mengetahui sebenarnya apk php kita itu melakukan pemanggilan query berapa
+                    kali</li>
+                <li><a href="https://github.com/itsgoingd/clockwork">https://github.com/itsgoingd/clockwork</a></li>
+                <li>kita install librarynya : pakai composer</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/11.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/12.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/13.webp" />
+                </div>
+                <li>kita install extension dibrowser kita : klik titik 3 &raquo; more tools &raquo; extensions &raquo;
+                    Open Chrome Web Store</li>
+                <li>kita cari clockwork/li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/11/14.webp" />
+                    </div>
+            </ul>
+
+            <hr>
+
+            <h2>Cara menggunakan clockwork</h2>
+
+            <ul>
+                <li>kita masuk inspect &raquo; clockwork &raquo; database</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/15.webp" />
+                </div>
+                <li>kita melakukan query sebanyak 41x</li>
+                <li>ini bisa kita persingkat</li>
+            </ul>
+
+            <hr>
+
+            <h2>Eager loading</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/16.webp" />
+                </div>
+                <li>Eager : semangat</li>
+                <li>lakukan semua diawal sehingga kita sudah punya datanya</li>
+                <li>jadi pada saat looping tidak perlu melakukan pemanggilan ke database lagi</li>
+                <hr>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/17.webp" />
+                </div>
+                <li>pada saat kita mengakses sebuah relationship pada saat eloquent (setiap pakai belongsTo, hasMany),
+                    maka model akan melakukan sebuah teknik yang namanya lazy loading</li>
+                <li>artinya data relationship ini tidak diload / tidak dipanggil sampai kita mengakses propertynya</li>
+                <li>tapi kita bisa meminta eloquent melakukan Eager loading ketika kita melakukan query pada parentnya,
+                    pada saat kita melakukan query dipostinganya</li>
+                <li>dia akan mengquery langsung author dan categorynya</li>
+                <li>eager loading ini dilakukan untuk menghindari N+1 problem</li>
+                <hr>
+                <li>dikasih contoh buku</li>
+                <li>misal punya buku dan penulis</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/18.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/19.webp" />
+                </div>
+                <li>kalo kita melakukan pengambilan data buku, nah ini problem</li>
+                <li>jadi setipa 25 buku kita melakukan 26 query : 1 untuk buku, 25 untuk nama author</li>
+                <li>untuk menghindari ini untungnya kita bisa menggunakan eager loading agar mengurangi operasinya hanya
+                    menjadi 2 query</li>
+                <li>kita hanya tambahkan sebuah method yang namanya with</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/20.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/21.webp" />
+                </div>
+                <li>kalo 2 : </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita coba</h2>
+
+            <ul>
+                <li>kita masuk ke PostController</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/23.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/24.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Problem ke 2</h2>
+
+            <ul>
+                <li>ketika kita masuk ke author</li>
+                <li>kita mengambil author tapi didalamnya ngikut postingan dan category</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/25.webp" />
+                </div>
+                <li>ini juga bisa kita persingkat tapi caranya agak berbeda</li>
+                <li>karena memang kalo misal kita balik ke web.php kita lihat di author</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/26.webp" />
+                </div>
+                <li>karena menggunakan route model banding, jadi agak berbeda, karena kalo dipost controller itu tidak
+                    pakai routes model banding</li>
+                <li>ini ada cara lain bukan pakai eager loading tapi pakai lazy eager loading</li>
+            </ul>
+
+            <hr>
+
+            <h2>Lazy Eager Loading</h2>
+
+            <ul>
+                <li>kadang<sup>2</sup> kita butuh melakukan eager loading pada relationship kita tapi setelah siparent
+                    sudah didapatkan, jadi tidak sekalian diambil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/27.webp" />
+                </div>
+                <li>kita pakai load</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/28.webp" />
+                </div>
+                <li>kita buka web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/29.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/30.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Memperbaiki category</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/31.webp" />
+                </div>
+                <li>kita tambahkan load di web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/32.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/11/33.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

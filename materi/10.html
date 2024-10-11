@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Factory & Faker</h2>
+
+        <div class="container-main2">
+            <h2>Intro</h2>
+
+            <ul>
+                <li>akan kita gunakan ketika kita ingin membuat banyak data sekaligus secara otomatis untuk nantinya
+                    kita jadikan sebagai data didalam seeder kita</li>
+                <li>kalo seeder kita menuliskan datanya manual 1 per 1 didalam seedernya</li>
+                <li>kita menggunakan sebuah library dinamakan faker : untuk membuat data kita terisi otomatis dengan
+                    data palsu / data dumi yang masuk akal secara random</li>
+                <li>jadi kita tidak perlu memikirkan data apa yang akan kita masukkan kedalam seedernya</li>
+                <li></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>kita coba fitur keren factory</h2>
+
+        <ul>
+            <li>factory == pabrik</li>
+            <li>pabrik pembuat data</li>
+            <li>datanya data palsu</li>
+            <hr>
+            <li>ketika kita masuk di model Post.php</li>
+            <li>itu ada script use HasFactory</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/1.webp" />
+            </div>
+            <li>jadi ini sebenarnya secara default kita sudah bisa bikin factorynya</li>
+            <li>sama seperti dimodel User</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/2.webp" />
+            </div>
+            <li>kalo kita tekan ctrl + click</li>
+            <li>nanti dia akan masuk ke sebuah trait yang namanya factory</li>
+            <li>dimana disini kita bisa bikin factorynya</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/3.webp" />
+            </div>
+            <hr>
+            <li>kita masuk ke seeder DatabaseSeeder.php</li>
+            <li>kita lihat dokumentasinya</li>
+        </ul>
+
+        <hr>
+
+        <h2>factory</h2>
+
+        <ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/4.webp" />
+            </div>
+            <div class="container-gmb">
+                <img src="../aset/img/10/5.webp" />
+            </div>
+            <li>pada saat pengujian, kita mungkin saja / pasti butuh menambahkan data baru ke dalam database kita
+                sebelum menjalankan test</li>
+            <li>dari pada kita secara manual mengetikkan datanya setiap columnnya</li>
+            <li>laravel memungkinkan kita untuk mendefinisikan sebuah factory ke dalam model kita</li>
+            <hr>
+            <li>untuk melihat cara kerja nya lihat aja database\factories\UserFactory.php</li>
+            <hr>
+            <li>isinya adaah ini:</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/6.webp" />
+            </div>
+            <div class="container-gmb">
+                <img src="../aset/img/10/7.webp" />
+            </div>
+            <li>isinya sebuah class yang terhubung ke class Factory</li>
+            <li>dimana didalamnya ada sebuah method definition, untuk bikin data user secara random</li>
+            <li>jadi kita bikin dengan skema yang sama dengan skema yang kita bikin dimodel</li>
+            <hr>
+            <li>contoh : </li>
+            <li>nama : dia memanggil sebauh method yang namanya faker name</li>
+            <ul>
+                <li>ini artinya generate nama palsu pakai library faker</li>
+            </ul>
+            <li>email</li>
+            <ul>
+                <li>generate email palsu yang sudah safeEmail(format nya sudah benar) yang dia uniq pakai library faker
+                </li>
+            </ul>
+            <hr>
+            <li>kita bisa bikin factory kita sendiri</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/8.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>Faker</h2>
+
+        <ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/9.webp" />
+            </div>
+            <li>click faker</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/10.webp" />
+            </div>
+            <li>click dokumentasinya fakerphp.github.io</li>
+            <li>sebenarnya kita bisa intall manual kalo kita punya apk bukan laravel</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/11.webp" />
+            </div>
+            <li>kita buka Available formatters</li>
+            <li>kita bisa menggenerate data random mulai dari gelar, nama, alamat, nomer telephon, perusahaan</li>
+            <li>bahkan kita bisa bikin generate orang indonesia</li>
+        </ul>
+
+        <hr>
+
+        <h2>kita bikin factory untuk model post kita</h2>
+
+        <ul>
+            <li>buka folder config file app.php</li>
+            <li>cari tulisan faker</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/12.webp" />
+            </div>
+            <li>disini defaultnya en_US : inggris amerika</li>
+            <li>kita ganti jadi indonesia tapi tidak langsung disini</li>
+            <li>kita akan bikin dia membaca file .env kita</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/13.webp" />
+            </div>
+            <li>jadi cara membacanya dia akan menagmbil dulu yang ada di varibale .env, kalo tidak ada defaultnya akan
+                inggris</li>
+            <hr>
+            <li>kita buka file .env kita</li>
+            <li>letakkan dipaling bawah</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/14.webp" />
+            </div>
+            <hr>
+            <li>kita ulangi seeding kita</li>
+            <li>buka file seeder DatabaseSeeder.php</li>
+            <li>jadi usernya kita tidak bikin manual tapi pakai factory</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/15.webp" />
+            </div>
+            <li>matikan User::create dan aktifkan factory dan hasilkan 5 user</li>
+            <li>kita jalankan artisan</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/16.webp" />
+            </div>
+            <ul>
+                <li>Hasil : </li>
+            </ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/17.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>Membuat Factory</h2>
+
+        <ul>
+            <li>ketik di artisan</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/18.webp" />
+            </div>
+            <li>bahkan nanti kedepannya kalo sudah paham factory, migrasi, seeder pada saat bikin model</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/19.webp" />
+            </div>
+            <li>-mfs : m(migrate) f(factory) s(seeder)</li>
+            <li>buka file factories PostFactory.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/20.webp" />
+            </div>
+            <li>buka file seeder DatabaseSeeder.php</li>
+            <li>komentari post::</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/21.webp" />
+            </div>
+            <li>artisan migrate</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/22.webp" />
+            </div>
+            <ul>
+                <li>Hasil : </li>
+            </ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/23.webp" />
+            </div>
+            <hr>
+            <li>kita user_id dan catgory_id bikin random</li>
+            <li>buka file factory PostFactory.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/24.webp" />
+            </div>
+            <li>buka file seeder DatabaseSeeder.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/25.webp" />
+            </div>
+            <li>kita artisan</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/26.webp" />
+            </div>
+            <div class="container-gmb">
+                <img src="../aset/img/10/27.webp" />
+            </div>
+            <ul>
+                <li>Hasil : </li>
+            </ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/28.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>data yang tampil terbaru duluan</h2>
+
+        <ul>
+            <li>buka controller PostController.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/29.webp" />
+            </div>
+            <li>buka file seeder DatabaseSeeder.php</li>
+            <li>kita matikan yang lain kecuali post dan tambah 5 data</li>
+            <li>untuk mengecek apakah yang terbaru akan diatas</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/30.webp" />
+            </div>
+            <li>kita artisan</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/31.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>kita bikin ketika diklik user akan menampilkan postinganya</h2>
+
+        <ul>
+            <li>kita masuk ke route file web.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/32.webp" />
+            </div>
+            <div class="container-gmb">
+                <img src="../aset/img/10/33.webp" />
+            </div>
+            <li>kita atur di view posts.blade.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/34.webp" />
+            </div>
+            <div class="container-gmb">
+                <img src="../aset/img/10/35.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>kita atur agar di urlnya tidak id</h2>
+
+        <ul>
+            <li>kita tambahkan di file create_table_user username</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/36.webp" />
+            </div>
+            <li>buka factory UserFactory.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/37.webp" />
+            </div>
+            <li>buka seeder DatabaseSeeder.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/38.webp" />
+            </div>
+            <li>masuk artisan</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/39.webp" />
+            </div>
+            <hr>
+            <li>kita benerin biar tidak mengirim id</li>
+            <li>buka route web.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/40.webp" />
+            </div>
+            <li>kita buka view posts.blade.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/41.webp" />
+            </div>
+            <ul>
+                <li>Hasil : </li>
+            </ul>
+            <div class="container-gmb">
+                <img src="../aset/img/10/42.webp" />
+            </div>
+        </ul>
+
+        <hr>
+
+        <h2>kita benerin agar tidak pakai user</h2>
+
+        <ul>
+            <li>ganti di web.php nya author</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/43.webp" />
+            </div>
+            <li>dipost.blade.php kita manggil nya tetap user, nah ini konteks nya tidak sesuai kalo misal kita mau ubah
+                user ini menjadi author</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/44.webp" />
+            </div>
+            <li>kita cari model Post.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/45.webp" />
+            </div>
+            <li>nah dimodel ini kita memanggil nya user, nah saat dihalaman view post nya memanggil user itu memanggil
+                method ini</li>
+            <li>nah kalo kita ganti jadi author ini akan error karena laravelnya akan mengecek ada tidak ditable post
+                itu field yang namanya author_id sebagai foreign key nya</li>
+            <li>nah padahal gak ada adanya juga user_id</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/46.webp" />
+            </div>
+            <li>nah kalo misal kita mau mengganti jadi author kita tambahkan parameternya user_id di file model Post.php
+            </li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/47.webp" />
+            </div>
+            <li>jadi kita mau ganti user_id aliasnya / nama lainnya jadi author</li>
+            <li>kalo kita balik / mengecek hasilnya error semua karena kita menuliskan user</li>
+            <li>kita benerin</li>
+            <li>kita ke view posts.blad.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/48.webp" />
+            </div>
+            <li>kita edit juga view dihalaman post.blade.php</li>
+            <div class="container-gmb">
+                <img src="../aset/img/10/49.webp" />
+            </div>
+        </ul>
+    </div>
+</body>
+
+</html>

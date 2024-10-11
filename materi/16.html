@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">User Login & Middleware</h2>
+
+        <div class="container-main2">
+            <ul>
+                <li>buka docukemtasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/1.webp" />
+                </div>
+                <li>sebetulnya laravel menyediakan starter kits</li>
+                <li>jadi ada plugin / apk yang khusus menangani masalah otentifikasi</li>
+                <li>ada laravel Breeze & laravel jet strim : dengan itu bisa dengan mudah menangani masalah
+                    autentifikasi dari registrasi user, login, dan verifikasi lewat email, remember me, forgot password
+                </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/2.webp" />
+                </div>
+                <hr>
+                <li>tapi kita akan membuat secara manual</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/3.webp" />
+                </div>
+                <li>kalo tidak pakai apk stater kits, tidak usah khawatir laravel punya sebuah authentifikasi service
+                    lewat facade</li>
+                <li>facade : library didalam laravel auth</li>
+            </ul>
+
+            <hr>
+
+            <h2>kita perbaiki view login</h2>
+
+            <ul>
+                <li>buka file login/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/4.webp" />
+                </div>
+                <li>buka file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/5.webp" />
+                </div>
+                <li>buka file LoginController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/6.webp" />
+                </div>
+                <hr>
+                <li>buka file login/index.blade.php untuk memberi feedback ketika gagal</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/7.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/8.webp" />
+                </div>
+                <hr>
+                <li>kita melakukan regenerate pada session karena : untuk menghindari sebuah teknik hacking yang namanya
+                    session fixation</li>
+                <ul>
+                    <li>session fixation : bagaimana cara seseorang untuk masuk ke celah sistem menggunakan session</li>
+                    <li>intanded : sebuah method yang disediakan laravel yang akan melakukan redirect user ke tempat /
+                        URL sebelum melewati authentication middleware.</li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/9.webp" />
+                </div>
+                <li>buka file LoginController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/10.webp" />
+                </div>
+                <li>buka file login/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/11.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/12.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>membuat dashboard</h2>
+
+            <ul>
+                <li>buat controller dashboard</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/13.webp" />
+                </div>
+                <li>tambah method di dashboardController</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/14.webp" />
+                </div>
+                <li>buat folder dashboard dan file didalamnya index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/15.webp" />
+                </div>
+                <li>kita bikin route</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/16.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/17.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Middleware</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/18.webp" />
+                </div>
+                <li>middleware menyediakan sebuah mekanisme yang memudahkan kita untuk melakukan inspeksi dan filtering
+                    HTTP request </li>
+                <li>contohnya, laravel sudah menyetakan sebuah middleware didalamnya yang melakukan verifikasi apakah
+                    seorang user dari apk kita sudah terauthentication / belum</li>
+                <li>jika belum middleware akan melakukan redirect user tadi kehalaman login / halaman yang kita inginkan
+                </li>
+                <li>tapi kalo sudah terauthentication, middleware akan memperbolehkan kita untuk lanjut masuk kedalam
+                    apknya.</li>
+                <hr>
+                <li>secara default laravel sudah banyak middleware yang otomatis jalan</li>
+                <li>ada yang namanya global middleware</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/19.webp" />
+                </div>
+                <li>ada middleware yang sudah otomatis jalan setiap request HTTP kita dijalankan, adanya di
+                    app/Http/kernel.php</li>
+                <hr>
+                <li>buka file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/20.webp" />
+                </div>
+                <li>guest untuk user yang belum login, jika sudah login maka akan ditolak</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/21.webp" />
+                </div>
+                <hr>
+                <li>kita atur agar tidak mengarah ke home</li>
+                <li>buka file app/providers/RouteServiceProvider.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/22.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita hilangkan navbar tombol login ketika sudah login</h2>
+
+            <ul>
+                <li>kita ambil navbar dropdown dari boostrap</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/23.webp" />
+                </div>
+                <li>buka file navbar.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/24.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/25.webp" />
+                </div>
+                <hr>
+                <li>untuk logout kita harus pakai form</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/26.webp" />
+                </div>
+                <hr>
+                <li>kita atur route web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/27.webp" />
+                </div>
+                <hr>
+                <li>kita atur controller loginnya</li>
+                <li>cara logout kita cari di authentication</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/28.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/29.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/30.webp" />
+                </div>
+                <li>buka file LoginController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/31.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>perbaiki dashboard</h2>
+
+            <ul>
+                <li>buka file route web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/32.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita ubah route login</h2>
+
+            <ul>
+                <li>kita jalankan akan error</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/33.webp" />
+                </div>
+                <li>buka file app/Http/Middleware/Authenticate.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/34.webp" />
+                </div>
+                <li>default: kalo misal ada user yang tidak terauthenticasi berusaha masuk ke halaman yang authenticasi
+                    redirect dia ke route yang namanya login</li>
+                <li>route bisa kita kasih nama : name route</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/35.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/36.webp" />
+                </div>
+                <li>jadi kita kasih tau di web.php kita mana route login</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/16/37.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Searching & Pagination</h2>
+
+        <div class="container-main2">
+            <h2>Intro</h2>
+
+            <ul>
+                <li>searching : untuk mencari postingan / blog post berdasarkan keyword tertentu</li>
+                <li>Pagination : membatasi yang akan ditampilkan</li>
+            </ul>
+
+            <hr>
+
+            <h2>Perbaiki halaman home dan about</h2>
+
+            <ul>
+                <li>buka routes web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/1.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita perbaiki else dari view posts.blade.php</h2>
+
+            <ul>
+                <li>buka view posts.blade.php</li>
+                <li>letakkan dipaling akhir</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/2.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>searching | menambahkan input</h2>
+
+            <ul>
+                <li>menambahkan fitur searching untuk menambahkan postingan</li>
+                <li>kita contoh dari bootstrap input supaya rapi</li>
+                <li>forms &raquo; input group $raquo; button addons</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/3.webp" />
+                </div>
+                <li>buka view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/4.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/5.webp" />
+                </div>
+                <li>kita atur jaraknya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/6.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>method request</h2>
+
+            <ul>
+                <li>untuk menangkap pencarian</li>
+                <li>karena dikirim ke post, kita harus arahkan routenya</li>
+                <li>buka controller postcontroller</li>
+                <li>kita cek dulu</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/7.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/8.webp" />
+                </div>
+                <li>kita lakukan query</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/9.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/10.webp" />
+                </div>
+                <li>jika kosong</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/11.webp" />
+                </div>
+                <li>menampilkan semua postingan</li>
+            </ul>
+
+            <hr>
+
+            <h2>menampilkan pencarian yang dicari diinputannya</h2>
+
+            <ul>
+                <li>ditambahkan value di inputannya file view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/12.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/13.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Mencari berdasarkan isi dan judul</h2>
+
+            <ul>
+                <li>tambahkan or</li>
+                <li>buka file postcontroller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/14.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Perbaiki pencarian data ini tugasnya model</h2>
+
+            <ul>
+                <li>kita search query scope</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/15.webp" />
+                </div>
+                <li>supaya kita bisa membuat filter kita sendiri</li>
+                <li>cari yang local</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/16.webp" />
+                </div>
+                <li>dengan menggunakan local scope memungkinkan kita untuk mendefinisikan query<sup>2</sup> umum yang
+                    bisa kita gunakan kembali didalam apk kita</li>
+                <li>contoh kita butuh untuk mencari secara sering data user yang kita anggap populer</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/17.webp" />
+                </div>
+                <li>didalam model kita bikin sebuah scope</li>
+                <li>scopenya wajib kata setelahnya bebas</li>
+                <li>didalamnya kita tulis kata clausulnya apa</li>
+                <hr>
+                <li>cara memanggil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/18.webp" />
+                </div>
+                <li>memanggilnya langsung didalam methodnya</li>
+            </ul>
+
+            <hr>
+
+            <h2>kita coba</h2>
+
+            <ul>
+                <li>buka model post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/19.webp" />
+                </div>
+                <li>kita cut dari postcontroller ke model post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/20.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/21.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita rapikan lagi</h2>
+
+            <ul>
+                <li>karena requestnya ada dimodel</li>
+                <li>request itu kerjaannya controller</li>
+                <li>buka model post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/22.webp" />
+                </div>
+                <li>buka controller post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/23.webp" />
+                </div>
+                <li>buka lagi model post, ganti dari request ke filter search</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/24.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>mengganti if jadi method when</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/25.webp" />
+                </div>
+                <li>when method akan dijalankan ketika first argument berisi true</li>
+                <li>menggunakan ini, karena mau bikin if nya banyak</li>
+                <li>buka model post</li>
+                <li>menggunakan cara ringkas null coalescing operator</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/26.webp" />
+                </div>
+                <li>yaitu(??) php7 : menambahkan syntactic sugar / pemanis, supaya menulisnya gampang saat kita butuh
+                    untuk menggunakan sebuah ternary dan juga digunakan untuk mengecek isset</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/27.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Kenapa harus ribet seperti itu</h2>
+
+            <ul>
+                <li>karena agar bisa mencari lebih spesifik</li>
+                <li>misal kita lagi ada di web design, kita cari judulnya, jadi cari di web design dengan judul itu
+                    tanpa ke caterory lain</li>
+                <li>buka controller post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/28.webp" />
+                </div>
+                <li>buka model post</li>
+                <li>untuk membuat search category kita harus join table</li>
+                <li>untuk query join table kita pakai whereHas</li>
+                <li>menggunakan use agar bisa membaca category yang diluar</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/29.webp" />
+                </div>
+                <hr>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/30.webp" />
+                </div>
+                <li>harusnya seperti ini</li>
+                <li>sulusi : kita ganti semua linknya agar tidak ke category & kirimkan data category ke URLnya</li>
+            </ul>
+
+            <hr>
+
+            <h2>ubah link ke category</h2>
+
+            <ul>
+                <li>buka file view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/31.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/32.webp" />
+                </div>
+                <li>tinggal kita perbaiki ketika cari agar tidak hilang</li>
+                <li>kita cari form pencarian</li>
+                <li>buka view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/33.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/34.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Perbaiki ketika masuk di single post</h2>
+
+            <ul>
+                <li>buka view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/35.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Memperbaiki yang authhor</h2>
+
+            <ul>
+                <li>buka file view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/36.webp" />
+                </div>
+                <li>buka file model post</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/37.webp" />
+                </div>
+                <li>kita kasih active unutk authornya</li>
+                <li>masuk ke file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/38.webp" />
+                </div>
+                <li>buka file posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/39.webp" />
+                </div>
+                <li>kita buka file view post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/40.webp" />
+                </div>
+                <li>kita buka di file posts.blade.php</li>
+                <li>kita ke form</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/41.webp" />
+                </div>
+                <li>kita ke file postcontroller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/42.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita benerkan agar categories mengarah ke posts</h2>
+
+            <ul>
+                <li>buka file categories.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/43.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>memperbaiki judul</h2>
+
+            <ul>
+                <li>buka file postcontroller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/44.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/45.webp" />
+                </div>
+                <li>kita bisa menghapus authors dan categories di web.php karena sudah ditangani oleh posts</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/46.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita akan membuat fitur pagination</h2>
+
+            <ul>
+                <li>search pagination</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/47.webp" />
+                </div>
+                <li>kita cukup panggil paginate</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/48.webp" />
+                </div>
+                <li>kita buka postcontroller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/49.webp" />
+                </div>
+                <li>tapi kalo diURL kita ketik page=2, sudah ada halaman 2</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/50.webp" />
+                </div>
+                <li>kita tambahkan link untuk page</li>
+                <li>buka file posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/51.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/52.webp" />
+                </div>
+                <li>tapi tidak sesuai kita inginkan karena default laravel untuk paginate adalah tailwind, kita search
+                </li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/53.webp" />
+                </div>
+                <li>cari file App/Provider/AppServiceProvider</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/54.webp" />
+                </div>
+                <li>didalam function boot ganti</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/55.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/56.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kalo pengen paginate nya dikanan</h2>
+
+            <ul>
+                <li>buka file view posts.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/57.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/58.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Problem ketika kita pencarian itu paginate tidak berfungsi semestinya</h2>
+
+            <ul>
+                <li>kita buka file postcontroller</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/59.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/13/60.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

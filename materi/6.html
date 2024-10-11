@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Database, Migration, & Eloquent</h2>
+
+        <div class="container-main2">
+            <h2>Environment</h2>
+
+            <ul>
+                <li>buka dokumentasinya dan ketikkan environment</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/1.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/2.webp" />
+                </div>
+                <li>akan dikasih tau bahwa, didalam laravel itu ada yang disebut dengan file dotEnv</li>
+                <li>file ini digunakan untuk melakukan setting pada lingkungan pengembangan apk kita</li>
+                <li>karena nanti nya kita tidak akan menyimpan / mendistribusikan konfigurasi in, karena konfigurasi
+                    harusnya diketahui oleh developernya saja, tidak bisa dilihat orang lain, apalagi ketika apk kita
+                    sudah diupload, baik itu ke web hosting, ataupun ke kode repository kita diinternet</li>
+                <li>ada file .env & .env.example</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/3.webp" />
+                </div>
+                <ul>
+                    <li>.env.example : templatenya</li>
+                    <li>.env : variable sebenarnya yang digunakan oleh apk kita</li>
+                </ul>
+                <li>setelah install laravel sudah dikasih defaultnya, contoh APP_KEY : akan otomatis digenerate ketika
+                    kita selesai mendownload apk laravel kita dari composer</li>
+                <li>APP_NAME : mengetahui nama dari apk kita</li>
+                <li>APP_ENV : untuk memberi tau lingkungan pengembangan sekarang kita lagi tahap proses apa, ada local,
+                    development, production</li>
+                <ul>
+                    <li>kalo kita ubah ke production prilaku laravel akan berubah, misal tidak akan menampilkan pesan
+                        kesalahan, selengkap kalo kita ubah dia jadi local</li>
+                    <li>ada perubahan lain yang intinya itu memberi tau, apk kita sudah siap untuk production</li>
+                </ul>
+                <li>APP_URL : memberi tau URL apk kita apa</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/4.webp" />
+                </div>
+                <hr>
+                <li>dan yang terpenting ada DB_CONNECTION</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/5.webp" />
+                </div>
+                <li>disini menentukan konfigurasi database dari apk kita</li>
+                <li>secara default memilih mysql sebagai DBMS nya atau Driver Databasenya</li>
+                <li>ada DB_HOST : defaultnya localhost</li>
+                <li>ada DB_PORT : untuk default databasenya</li>
+                <li>DB_DATABASE : nama database</li>
+                <li>DB_USERNAME : username database</li>
+                <li>DB_PASSWORD : password database</li>
+                <hr>
+                <li>ada file .gitignore : kalo misal pakai git</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/6.webp" />
+                </div>
+                <hr>
+                <li>kita ganti DB</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/7.webp" />
+                </div>
+                <li>aktifkan XAMPP untuk terkoneksi dengan database</li>
+                <li>install MySQL Workbench</li>
+                <ul>
+                    <li>Link : <a href="https://downloads.mysql.com/archives/workbench/" target="_blank"
+                            rel="noopener noreferrer">https://downloads.mysql.com/archives/workbench/</a></li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/8.webp" />
+                </div>
+                <li>setelah didownload buka apknya</li>
+                <li>jika tidak bisa kita bisa menggunakan xampp</li>
+                <li>katanya dilaravel, migration seperti version control untuk database kita</li>
+                <li>version control itu seperti git, bisa melacak perubahan pada coding kita</li>
+                <li>migration : melacak perubahan pada database kita lewat codingan laravel</li>
+                <li>memungkin kita & tim kita untuk mendefinisikan serta mendistribusikan/ membagikan schema / struktur
+                    dari database kita</li>
+                <li>jadi struktur nya tidak lagi kita buat didbmsnya tapi buat nya pakai codingan lewat class yang ada
+                    didalam laravel</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/9.webp" />
+                </div>
+                <li>caranya kita akan menggunakan artisan command</li>
+                <li>caranya ketik <code>make:migration</code>, untuk membuat sebuah migrasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/10.webp" />
+                </div>
+                <li>tapi nanti kita lihat secara default laravel sudah punya beberapa file migrasi, yang bisa kita
+                    eksekusi</li>
+                <hr>
+                <li>kalo misal sudah ada file migrasinya, cukup eksekusi migrasinya</li>
+                <li>tinggal tulis <code>php artisan migrate</code></li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/11.webp" />
+                </div>
+                <li>nanti semua file migrasinya akan dieksekusi menjadi sebuah table</li>
+                <hr>
+                <li>buka terminal</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/12.webp" />
+                </div>
+                <li>tiba<sup>2</sup> didalam database kita ada table baru beserta table migration</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/13.webp" />
+                </div>
+                <li>table migration, kalo tau git : file / folder .git, table ini akan melacak perubahan<sup>2</sup>
+                    pada table lainnya</li>
+            </ul>
+
+            <hr>
+
+            <h2>table<sup>2</sup> ini muncul dari mana</h2>
+
+            <ul>
+                <li>muncul karena ada file didalam folder database ada folder migration</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/14.webp" />
+                </div>
+                <li>kita lihat diuser</li>
+                <li>didalam file user ini, pasti ada 2 buah method dalam classnya</li>
+                <li>ada method up & down</li>
+                <ul>
+                    <li>up : method yang akan kita gunakan ketika kita mau bikin schema/struktur dari tablenya</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/6/15.webp" />
+                    </div>
+                    <ul>
+                        <li>cara kita untuk bikin struktur table tidak lagi pakai dbmsnya</li>
+                        <li>dan up ini dieksekusi ketika ketik migrate</li>
+                    </ul>
+                    <li>down</li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/6/16.webp" />
+                    </div>
+                    <ul>
+                        <li>untuk menghilangkan schema yang kita bikin</li>
+                        <li>perintahnya : role back</li>
+                    </ul>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/17.webp" />
+                </div>
+                <li>menghilangkan semua table didatabase</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/18.webp" />
+                </div>
+                <li>semua table hilang kecuali migration, karena inilah yang melacak perubahan tadi</li>
+                <li>akan keren banget ketika kita mau bekerja secara tim / mau melakukan development, kita tidak perlu
+                    repot<sup>2</sup> lagi bikin table manual / bahkan export dan import database tidak perlu</li>
+            </ul>
+
+            <hr>
+
+            <h2>1 perintah melakukan ke2 nya</h2>
+
+            <ul>
+                <li>fresh untuk melakukan roleback dan migrate sekaligus</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/19.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>untuk apa fresh ini</h2>
+
+            <ul>
+                <li>ketika kita mau mengubah schema dari table kita</li>
+                <li>misal</li>
+                <li>untuk mengubah property / struktur table kita</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/20.webp" />
+                </div>
+                <li>ingin menghapus salah satu struktur</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/21.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/22.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/23.webp" />
+                </div>
+                <li>jika kita sudah ubah keproduction akan ada peringatan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/24.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/25.webp" />
+                </div>
+                <li>jika ingin tau apa aja yang bisa kita pakai click aja column method</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/26.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>menambahkan dan menghapus 1 schema</h2>
+
+            <ul>
+                <li>type data yang bisa kita pilih</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/27.webp" />
+                </div>
+                <li>kita tambahkan 1 field untuk mengecek apakah user admin / bukan</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/28.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/29.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/30.webp" />
+                </div>
+                <li>menambahkan data</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/31.webp" />
+                </div>
+                <li>atur seperti default</li>
+            </ul>
+
+            <hr>
+
+            <h2>mengisi data tidak lewat dbms</h2>
+
+            <ul>
+                <li>kita bisa mengisi data tapi tidak lewat mysql nya, bisa melakukan dengan mudah karena dilaravel ada
+                    eloquent</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/32.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/33.webp" />
+                </div>
+                <li>ORM(Object Relational Mapper) : sebuah fungsi untuk memetakan tiap<sup>2</sup> data yang ada didalam
+                    table / database nanti ke dalam sebuah object</li>
+                <li>Eloquent : ORM yang dapat memudahkan kita berinteraksi dengan database yang kita buat</li>
+                <li>saat menggunakan eloquent, setiap table didalam database kita, itu bercorresponding / terhubung
+                    kedalam sebuah model yang bisa kita gunakan untuk berinteraksi dengan table tadi</li>
+                <li>antara website kita dan table didalam mysql kita ada perantara yang namanya model</li>
+                <hr>
+                <li>selain kita bisa mengambil data<sup>2</sup> dari table didatabase kita, eloquent model memungkinkan
+                    kita juga untuk melakukan CRUD ke dalam table lewat codingan</li>
+                <li>tidak perlu menyentuh database client</li>
+                <li>bisa terjadi karena active record pettern</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/34.webp" />
+                </div>
+                <li>Active record pattern : sebuah pendekatan untuk akses data didalam database</li>
+                <li>jadi data didalam database kita itu dibungkus menjadi sebuah class, setip data / row terhubung ke
+                    dalam instance dari class nya / object</li>
+                <li>pada saat membuat object, baris baru ditablenya akan ditambahkan pada saat kita melakukan save</li>
+                <li>biasanya digunakan didalam ORM</li>
+            </ul>
+
+            <hr>
+
+            <h2>caranya</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/35.webp" />
+                </div>
+                <li>akan masuk ke sebuah shell sudah bisa langsung kita hubungkan dengan apk laravel kita</li>
+                <li>kita lihat app/models/</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/36.webp" />
+                </div>
+                <li>file user.php sudah otomatis ada, file ini merupakan model yang pasangan dari table user</li>
+                <li>buka file user.php nya</li>
+                <li>fillable : file<sup>2</sup> apa saja yang boleh diisi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/37.webp" />
+                </div>
+                <li>hidden</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/38.webp" />
+                </div>
+                <li>kita bisa mengakses file user.php dengan cara :</li>
+                <li>bikin user baru : bikin variable user</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/39.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/40.webp" />
+                </div>
+                <li>sekarang $user merupakan intance dari model user</li>
+                <hr>
+                <li>sekarang kita isi field nya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/41.webp" />
+                </div>
+                <li>bcrypt : enkripsi password</li>
+                <li>dengan melakukan ini kita sudah membuat 1 object yang namanya user berisi data diatas</li>
+                <li>tapi ini belum tersimpan didatabasenya, jadi harus melakukan save</li>
+                <hr>
+                <li>ketik save, dan pastikan xampp nya aktif</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/42.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/43.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>melihat isi didalam table user ada apa saja</h2>
+
+            <ul>
+                <li>pakai tinker</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/44.webp" />
+                </div>
+                <li>tambah datanya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/45.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/46.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>Menggunakan collection</h2>
+
+            <ul>
+                <li>mencari urutan pertama : first()</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/47.webp" />
+                </div>
+                <li>mencari user dengan id 2</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/48.webp" />
+                </div>
+                <li>1 method untuk menangani yang kita cari tidak ada</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/6/49.webp" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

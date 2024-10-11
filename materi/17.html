@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <h2 class="judul">Dashboard UI</h2>
+
+        <div class="container-main2">
+            <ul>
+                <li>kita download dulu file thema example dari bootstrap</li>
+                <li>kita copy file css dan js untuk Dashboard</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/1.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/2.webp" />
+                </div>
+                <hr>
+                <li>kita putuskan untuk mengelola dashboard tidak perlu pakai controller</li>
+                <li>karena dashboard hanya menampilkan halaman dashboardnya saja</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/3.webp" />
+                </div>
+                <li>kita bisa hapus dashboard controllernya</li>
+                <hr>
+                <li>kita copy isi dashboard view dari dashboard dari bootstrap</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/4.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/5.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>kita edit tampilan dashboard</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/6.webp" />
+                </div>
+                <li>yang kita butuhkan bagian navbar adalag dashboard dan order saja, yang lain hapus</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/7.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/8.webp" />
+                </div>
+                <hr>
+                <li>kita buat folder baru layouts didalam folder dashboard didalamnya main.blade.php</li>
+                <li>kita pindakan isi dari dashboard/index.blade.php ke dashboard/layouts/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/9.webp" />
+                </div>
+                <li>header yang dashboard/layouts/main.blade.php kita pindahkan kita ganti include</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/10.webp" />
+                </div>
+                <li>buat file baru dashboard/layouts/header.blade.php
+                <li>
+                    <div class="container-gmb">
+                        <img src="../aset/img/17/11.webp" />
+                    </div>
+                    <hr>
+                <li>kita dashboard/layouts/main.blade.php</li>
+                <li>kita ubah navbar menjadi include dan buat file baru dashboard/layouts/sidebar.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/12.webp" />
+                </div>
+                <hr>
+                <li>kita ubah dalam main jadi yield</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/13.webp" />
+                </div>
+                <li>didalam index.balde.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/14.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/15.webp" />
+                </div>
+                <hr>
+                <li>buka file dashboard sidebar.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/16.webp" />
+                </div>
+            </ul>
+
+            <hr>
+
+            <h2>resource controller</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/17.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/18.webp" />
+                </div>
+                <li>jika kita menganggap sebuah eloquent di model kita sebagai resource itu merupakan sebuah kumpulan
+                    sebuah aksi yang biasanya kita bikin untuk melakukan sesuatu terhadap resource kita</li>
+                <li>misal apk kita punya foto / movie, kan biasanya kita akan melakukan CRUD</li>
+                <li>karena ini sudah umum dilakukan sebagai use case. laravel membuatkan sebuah route khusus untuk
+                    melakukan CRUD, yang dinamakan resource controller pada saat kita ketik make:controller pada saat
+                    diartisan, kita tambahkan --resource diakhirnya</li>
+                <li>sehingga otomatis dibuatkan controller yang sudah punya route ke patch ini :</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/19.webp" />
+                </div>
+                <li>nanti didalam route web.php tidak perlu bikin route 1 per 1 untuk yang diatas</li>
+            </ul>
+
+            <hr>
+
+            <h2>Specifying The Resource Model</h2>
+
+            <ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/20.webp" />
+                </div>
+                <li>kita bisa langsung menentukan route model bunding untuk controller baru kita</li>
+                <li>kita akan memberi tahu bahwa controller yang kita punya selain bentuk resource dia juga langsung
+                    terhubung dengan model yang mana</li>
+            </ul>
+
+            <hr>
+
+            <h2>kita coba</h2>
+
+            <ul>
+                <li>ketik di artisan:</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/21.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/22.webp" />
+                </div>
+                <li>didalamnya sudah terhubung dengan model post dan ada banyak method</li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <li>kita masuk ke route web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/23.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/24.webp" />
+                </div>
+                <li>kita buka DashboardPostController</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/25.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/26.webp" />
+                </div>
+                <hr>
+                <li>kita masuk lagi ke DashboardPostController</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/27.webp" />
+                </div>
+                <li>kita buat folder baru di folder dashboard/posts/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/28.webp" />
+                </div>
+                <li>isinya sama kan dengan index dashboard index nya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/29.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/30.webp" />
+                </div>
+                <li>kita benarkan dulu active classnya</li>
+                <li>kita bikin active nya lewat grequest</li>
+                <li>buka file dashboard/layouts/sidebar.blade.php</li>
+                <li>kita menggunakan Request</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/31.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/32.webp" />
+                </div>
+                <li>kita edit lagi halaman dashboard/posts/index.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/33.webp" />
+                </div>
+                <li>kita ambil data lewat post</li>
+                <li>buka file DashboardPostController.php</li>
+                <li>kita cek dulu mengambil semua data</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/34.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/35.webp" />
+                </div>
+                <li>kita edit lagi jadi seperti ini karena sudah berhasil</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/36.webp" />
+                </div>
+                <li>kita masuk lagi ke dashboard/posts/index.blade.php</li>
+                <li>kita cek dulu apakah sudah terkirim ke view</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/37.webp" />
+                </div>
+                <ul>
+                    <li>Hasil : </li>
+                </ul>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/38.webp" />
+                </div>
+                <li>kita edit untuk isinya yang pertama untuk nomor</li>
+                <li>dilaravel sudah dibuatkan</li>
+                <li>lihat dokumentasinya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/39.webp" />
+                </div>
+                <li>kalo kita pakai foreach kita bisa pakai loops variable</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/40.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/41.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/42.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/43.webp" />
+                </div>
+                <li>kita edit sedikit</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/44.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/45.webp" />
+                </div>
+                <li>kita tidak perlu menangani URLnya karena sudah ditangani route resourcenya</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/46.webp" />
+                </div>
+                <li>tinggal kita tangani dibagian show</li>
+                <li>kita masuk ke file DashboardPostController.php</li>
+                <li>edit bagian method show untuk mengecek</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/47.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/48.webp" />
+                </div>
+                <hr>
+                <li>tapi masih dalam bentuk id, bagaimana agar bisa dalam bentuk slug</li>
+                <li>caranya bikin route baru</li>
+                <li>buka file web.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/49.webp" />
+                </div>
+                <li>ada cara ngakalinya : membuat slug sebagai nilai default pencarian</li>
+            </ul>
+
+            <hr>
+
+            <h2>Membuat slug sebagai default pencarian</h2>
+
+            <ul>
+                <li>buka dokumentasi</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/50.webp" />
+                </div>
+                <li>kadang<sup>2</sup> kita ingin agar si eloquent ini mencari model menggunakan column selain id, untuk
+                    melakukan ini kita harus kasih tau columnya didalam model</li>
+                <li>caranya kita bisa tulis diroute parameter</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/51.webp" />
+                </div>
+                <li>kalo kita inginnya si model selalu menggunakan column didatabase selain id, caranya kita akan timpa
+                    menggunakan sebuah method getRouteKeyName didalam model kita</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/52.webp" />
+                </div>
+                <li>kita copykan ke model post kita paling bawah(tidak wajib)</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/53.webp" />
+                </div>
+                <li>hasilnya error</li>
+                <li>karena tidak ada slug 1</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/54.webp" />
+                </div>
+                <li>jadi kita ganti jadi slug buka file dashboard/post/index.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/55.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/56.webp" />
+                </div>
+                <hr>
+                <li>tapi kita bukan menampilkan data tapi view</li>
+                <li>buka file DashboardPostController.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/57.webp" />
+                </div>
+                <li>kita buat file baru dashboard/posts/show.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/58.webp" />
+                </div>
+                <li>isinya kita copy dari dashboard/posts/index.blade.php dan view/post.blade.php</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/59.webp" />
+                </div>
+                <li>kita edit</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/60.webp" />
+                </div>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/61.webp" />
+                </div>
+                <li>kita kasih link</li>
+                <div class="container-gmb">
+                    <img src="../aset/img/17/62.webp" />
+                </div>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
